@@ -5,6 +5,19 @@
 \paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 function salamVer() \{\
-    alert("Biziml\uc0\u601  \u601 laq\u601  saxlad\u305 \u287 \u305 n\u305 z \'fc\'e7\'fcn t\u601 \u351 \u601 kk\'fcrl\u601 r! Yax\u305 n zamanda sizinl\u601  \u601 laq\u601  saxlayaca\u287 \u305 q.");\
+\f0\fs24 \cf0 function secVakansiya(vakansiyaAdi) \{\
+    document.getElementById('vakansiyaSelect').value = vakansiyaAdi;\
+    document.getElementById('elaqe').scrollIntoView(\{ behavior: 'smooth' \});\
+\}\
+\
+function formGonder(event) \{\
+    event.preventDefault();\
+    \
+    let ad = document.getElementById('ad').value;\
+    let tel = document.getElementById('telefon').value;\
+    let vakansiya = document.getElementById('vakansiyaSelect').value;\
+\
+    alert("T\uc0\u601 \u351 \u601 kk\'fcr edirik, " + ad + "!\\n\\n" + vakansiya + " \'fczr\u601  m\'fcraci\u601 tiniz q\u601 bul olundu. " + tel + " n\'f6mr\u601 si il\u601  tezlikl\u601  \u601 laq\u601  saxlayaca\u287 \u305 q.");\
+    \
+    document.getElementById('applyForm').reset();\
 \}}
