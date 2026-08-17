@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avropa İş | TIR Sürücüsü Vakansiyaları (Polşa & Litva)</title>
-    <!-- Google Fonts: Inter for clean, modern typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     
     <style>
         :root {
@@ -79,13 +76,18 @@
             gap: 0.5rem;
         }
 
+        .btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.8;
+        }
+
         .btn-primary {
             background: linear-gradient(135deg, var(--secondary), #2563EB);
             color: var(--white);
             box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
         }
 
-        .btn-primary:hover {
+        .btn-primary:hover:not(:disabled) {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
         }
@@ -96,7 +98,7 @@
             box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
         }
 
-        .btn-accent:hover {
+        .btn-accent:hover:not(:disabled) {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
             background: #059669;
@@ -283,7 +285,6 @@
             border-radius: 24px;
             overflow: hidden;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-            /* Placeholder for actual image - using a nice gradient instead */
             background: linear-gradient(145deg, var(--primary) 0%, #1E293B 100%);
             height: 500px;
             display: flex;
@@ -445,6 +446,7 @@
             padding: 3rem;
             border-radius: 24px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            position: relative;
         }
 
         .form-group {
@@ -546,6 +548,7 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
+        /* Responsive Design */
         @media (max-width: 992px) {
             .hero-container {
                 grid-template-columns: 1fr;
@@ -558,7 +561,7 @@
                 justify-content: center;
             }
             .floating-badge {
-                display: none; /* Hide badges on smaller screens for cleaner look */
+                display: none;
             }
             .hero-image-wrapper {
                 height: 400px;
@@ -651,7 +654,6 @@
                     </div>
                 </div>
                 <div class="hero-image-wrapper">
-                    <!-- Abstract representation of a truck/journey -->
                     <i class="fa-solid fa-truck-moving"></i>
                 </div>
                 <div class="floating-badge badge-2">
@@ -724,23 +726,26 @@
     <section id="apply" class="apply-section">
         <div class="container">
             <h2 class="section-title">Bizə Qoşulun</h2>
-            <p class="section-subtitle">Məlumatlarınızı qeyd edin, komandamız sizinlə ən qısa zamanda əlaqə saxlayacaq. Müraciətiniz birbaşa WhatsApp-a yönləndiriləcək.</p>
+            <p class="section-subtitle">Məlumatlarınızı qeyd edin, dərhal qeydiyyata alaq və əlavə məlumat üçün sizi WhatsApp xəttimizə yönləndirək.</p>
             
             <div class="form-container">
-                <form id="applicationForm">
+                <!-- 
+                  Important: Added 'name' attributes to match Apps Script payload 
+                -->
+                <form id="applicationForm" name="applicationForm">
                     <div class="form-group">
                         <label for="fullName" class="form-label">Ad və Soyad</label>
-                        <input type="text" id="fullName" class="form-control" placeholder="Məs: Əli Əliyev" required>
+                        <input type="text" id="fullName" name="fullName" class="form-control" placeholder="Məs: Əli Əliyev" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="phone" class="form-label">Əlaqə Nömrəsi (WhatsApp)</label>
-                        <input type="tel" id="phone" class="form-control" placeholder="+994 -- --- -- --" required>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="+994 -- --- -- --" required>
                     </div>
                     
                     <div class="form-group">
                         <label for="vacancy" class="form-label">İstədiyiniz Vakansiya</label>
-                        <select id="vacancy" class="form-control" required>
+                        <select id="vacancy" name="vacancy" class="form-control" required>
                             <option value="" disabled selected>Vakansiya seçin...</option>
                             <option value="Polşa - TIR Sürücüsü">Polşa: TIR Sürücüsü (€2100-€2600)</option>
                             <option value="Litva - TIR Sürücüsü">Litva: TIR Sürücüsü (€2200-€2700)</option>
@@ -750,7 +755,7 @@
 
                     <div class="form-group">
                         <label for="experience" class="form-label">CE Kateqoriya üzrə Təcrübəniz</label>
-                        <select id="experience" class="form-control" required>
+                        <select id="experience" name="experience" class="form-control" required>
                             <option value="" disabled selected>Təcrübə müddətini seçin...</option>
                             <option value="Təcrübəsiz / Yeni">Təcrübəsiz / Yeni almışam</option>
                             <option value="1 ilə qədər">1 ilə qədər</option>
@@ -760,7 +765,7 @@
                     </div>
                     
                     <button type="submit" class="btn btn-accent form-submit">
-                        <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> WhatsApp ilə Göndər
+                        <i class="fa-regular fa-paper-plane"></i> Müraciəti Göndər
                     </button>
                 </form>
             </div>
@@ -828,12 +833,9 @@
 
         // Function called when clicking "Bu işi seç" on cards
         function selectJob(jobValue) {
-            // Scroll to form
             document.getElementById('apply').scrollIntoView({ behavior: 'smooth' });
             
-            // Set the dropdown value
             const selectElement = document.getElementById('vacancy');
-            // Check if the option exists
             for(let i = 0; i < selectElement.options.length; i++) {
                 if(selectElement.options[i].value === jobValue) {
                     selectElement.selectedIndex = i;
@@ -841,64 +843,77 @@
                 }
             }
             
-            // Highlight the select field temporarily
             selectElement.style.boxShadow = '0 0 0 4px rgba(16, 185, 129, 0.2)';
             setTimeout(() => {
                 selectElement.style.boxShadow = '';
             }, 1500);
         }
 
-        // Handle Form Submission to WhatsApp
-        document.getElementById('applicationForm').addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevent page reload
+        /* 
+         * ==========================================
+         * GOOGLE APPS SCRIPT FORM SUBMISSION LOGIC 
+         * ==========================================
+         */
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwFZYflt60dgSm4WfwZc0IMKVZLHSvnVqkNYPrmRnySXqNFWyzi1BiHOwdkmw5GfHOa/exec';
+        const form = document.forms['applicationForm'];
 
-            // Replace this with your agency's actual WhatsApp number (include country code, no + or spaces)
-            // Example for an AZ number: 994501234567
-            const targetWhatsAppNumber = "994500000000"; 
+        form.addEventListener('submit', e => {
+            e.preventDefault(); // Prevent standard page reload
 
-            // Get form values
-            const name = document.getElementById('fullName').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const vacancy = document.getElementById('vacancy').value;
-            const experience = document.getElementById('experience').value;
-
-            // Format the message
-            const message = `
-🌟 *Yeni Müraciət (TIR Sürücüsü)* 🌟
-
-👤 *Ad/Soyad:* ${name}
-📱 *Nömrə:* ${phone}
-💼 *Seçilən İş:* ${vacancy}
-🚚 *Təcrübə (CE):* ${experience}
-
-_Vebsaytdan göndərildi._
-            `.trim();
-
-            // Encode for URL
-            const encodedMessage = encodeURIComponent(message);
-
-            // Construct WhatsApp wa.me link
-            const whatsappUrl = `https://wa.me/${targetWhatsAppNumber}?text=${encodedMessage}`;
-
-            // Provide visual feedback before redirecting
-            const submitBtn = this.querySelector('button[type="submit"]');
+            const submitBtn = form.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
             
-            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Yönləndirilir...';
-            submitBtn.style.background = '#059669'; // Darker green
+            // 1. Gather the data from inputs to construct the WhatsApp message BEFORE clearing it
+            const formData = new FormData(form);
+            const name = formData.get('fullName');
+            const phone = formData.get('phone');
+            const vacancy = formData.get('vacancy');
+            const experience = formData.get('experience');
+            
+            // Agency WhatsApp number (Update this as needed)
+            const targetWhatsAppNumber = "994500000000"; 
+            
+            // Format message for WhatsApp
+            const waMessage = `🌟 *Yeni Müraciət (TIR Sürücüsü)* 🌟\n\n👤 *Ad/Soyad:* ${name}\n📱 *Nömrə:* ${phone}\n💼 *Seçilən İş:* ${vacancy}\n🚚 *Təcrübə:* ${experience}`;
+            const whatsappUrl = `https://wa.me/${targetWhatsAppNumber}?text=${encodeURIComponent(waMessage)}`;
 
-            // Small delay for UX, then redirect
-            setTimeout(() => {
-                window.open(whatsappUrl, '_blank');
-                // Reset form
-                this.reset();
-                submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Göndərildi';
+            // 2. Change button state to "Loading"
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Göndərilir...';
+            submitBtn.disabled = true;
+
+            // 3. Send data to Google Apps Script via POST
+            fetch(scriptURL, { 
+                method: 'POST', 
+                body: formData 
+            })
+            .then(response => {
+                // 4. Success UI
+                submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Uğurla Göndərildi!';
+                submitBtn.style.background = '#10B981'; // Turn Green
+                
+                // 5. Short delay, then open WhatsApp & reset form
+                setTimeout(() => {
+                    window.open(whatsappUrl, '_blank'); // Open WhatsApp in new tab
+                    form.reset(); // Clear form
+                    
+                    // Reset button to original state
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.style.background = '';
+                    submitBtn.disabled = false;
+                }, 1500);
+            })
+            .catch(error => {
+                // Handle Error Scenario
+                console.error('Submission Error:', error.message);
+                submitBtn.innerHTML = '<i class="fa-solid fa-triangle-exclamation"></i> Xəta baş verdi';
+                submitBtn.style.background = '#EF4444'; // Turn Red
                 
                 setTimeout(() => {
                     submitBtn.innerHTML = originalText;
-                    submitBtn.style.background = ''; // reset style
+                    submitBtn.style.background = '';
+                    submitBtn.disabled = false;
                 }, 3000);
-            }, 800);
+            });
         });
     </script>
 </body>
