@@ -1,102 +1,904 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="az">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2113.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #000000; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
-    span.s1 {font-kerning: none}
-    span.s2 {font: 12.0px 'Lucida Grande'; font-kerning: none}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avropa İş | TIR Sürücüsü Vakansiyaları (Polşa & Litva)</title>
+    <!-- Google Fonts: Inter for clean, modern typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            /* Sophisticated Color Palette */
+            --primary: #0F172A; /* Deep slate blue */
+            --secondary: #3B82F6; /* Bright blue for accents */
+            --accent: #10B981; /* Success green */
+            --bg-light: #F8FAFC;
+            --text-main: #1E293B;
+            --text-muted: #64748B;
+            --white: #FFFFFF;
+            
+            /* Glassmorphism settings */
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --glass-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.05);
+            
+            /* Transitions */
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--primary);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary), #2563EB);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+        }
+
+        .btn-accent {
+            background: var(--accent);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-accent:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.5);
+            background: #059669;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            box-shadow: var(--glass-shadow);
+            transition: var(--transition);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Abstract Background Elements */
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0) 70%);
+            top: -200px;
+            right: -100px;
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, rgba(16, 185, 129, 0) 70%);
+            bottom: 0;
+            left: -100px;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-content h1 span {
+            color: var(--secondary);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+        
+        .hero-image-wrapper {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+            /* Placeholder for actual image - using a nice gradient instead */
+            background: linear-gradient(145deg, var(--primary) 0%, #1E293B 100%);
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5rem;
+        }
+
+        .hero-image-wrapper i {
+            opacity: 0.8;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating-badge {
+            position: absolute;
+            background: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            z-index: 2;
+            animation: float 5s ease-in-out infinite reverse;
+        }
+
+        .badge-1 { top: 40px; left: -40px; }
+        .badge-2 { bottom: 60px; right: -30px; }
+
+        .badge-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .vacancies {
+            padding: 8rem 0;
+            background-color: var(--white);
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .job-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .job-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .job-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .job-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .country-badge {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--secondary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .salary {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .job-title {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .req-list {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .req-list li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .req-list i {
+            color: var(--accent);
+            background: rgba(16, 185, 129, 0.1);
+            padding: 0.4rem;
+            border-radius: 50%;
+            font-size: 0.8rem;
+        }
+
+        .job-card .btn {
+            width: 100%;
+        }
+
+        .apply-section {
+            padding: 8rem 0;
+            background: var(--bg-light);
+        }
+
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--primary);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 2px solid #E2E8F0;
+            border-radius: 12px;
+            font-size: 1rem;
+            color: var(--text-main);
+            transition: var(--transition);
+            background: var(--bg-light);
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: var(--secondary);
+            background: var(--white);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        }
+
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1.2em;
+        }
+
+        .form-submit {
+            margin-top: 2rem;
+            width: 100%;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .footer-logo i { color: var(--secondary); }
+
+        .footer-info {
+            color: #94A3B8;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            color: #64748B;
+            font-size: 0.9rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 992px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            .hero-stats {
+                justify-content: center;
+            }
+            .floating-badge {
+                display: none; /* Hide badges on smaller screens for cleaner look */
+            }
+            .hero-image-wrapper {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                gap: 1.5rem;
+                text-align: center;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .form-container {
+                padding: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="az"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;Xaricdə İş - Avropada TIR Sürücüsü Vakansiyaları&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;link rel="stylesheet" href="style.css"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Yuxarı Başlıq (Header) --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;header&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="logo"&gt;KaryeraAvropa&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;nav&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;a href="#vakansiyalar"&gt;Vakansiyalar&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;a href="#haqqimizda"&gt;Haqqımızda&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;a href="#elaqe" class="btn-nav"&gt;Müraciət Et&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/nav&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/header&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Əsas Giriş Hissəsi (Hero) --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;section class="hero"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h1&gt;Avropada Rəsmi İş və Yüksək Məvacib&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Polşa və Litvada beynəlxalq yük avtomobili (TIR) sürücüləri tələb olunur.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;a href="#vakansiyalar" class="btn-main"&gt;Vakansiyalara Bax&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Vakansiyalar Hissəsi --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;section id="vakansiyalar" class="jobs-container"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Aktiv Vakansiyalar&lt;/h2&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="jobs-grid"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;!-- Polşa Card --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="job-card"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;span class="badge"&gt;Polşa&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h3&gt;TIR Sürücüsü (CE Kateqoriya)&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p class="salary"&gt;Məvacib: €2,100 - €2,600 / ay&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;ul&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;li&gt;</span><span class="s2">✓</span><span class="s1"> CE kateqoriyalı sürücülük vəsiqəsi&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;li&gt;</span><span class="s2">✓</span><span class="s1"> Qanuni iş icazəsi və vizanın hazırlanması&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;li&gt;</span><span class="s2">✓</span><span class="s1"> Müasir avtopark (Euro 6)&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/ul&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;button onclick="secVakansiya('Polşa - TIR Sürücüsü')"&gt;Müraciət Et&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;!-- Litva Card --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;div class="job-card"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;span class="badge"&gt;Litva&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;h3&gt;TIR Sürücüsü (CE Kateqoriya)&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;p class="salary"&gt;Məvacib: €2,200 - €2,700 / ay&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;ul&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;li&gt;</span><span class="s2">✓</span><span class="s1"> Rəqəmsal taxoqraf kartı (Çip)&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;li&gt;</span><span class="s2">✓</span><span class="s1"> Kod 95 dəstəyi (vəsiqəsi olmayana köməklik)&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;li&gt;</span><span class="s2">✓</span><span class="s1"> Avropa daxili beynəlxalq reyslər&lt;/li&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/ul&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;button onclick="secVakansiya('Litva - TIR Sürücüsü')"&gt;Müraciət Et&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- Müraciət Forması --&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;section id="elaqe" class="contact-section"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Tez Müraciət Forması&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;Məlumatlarınızı qeyd edin, mütəxəssislərimiz sizinlə əlaqə saxlasın.&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span></span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;form id="applyForm" onsubmit="formGonder(event)"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="ad" placeholder="Ad və Soyadınız" required&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;input type="tel" id="telefon" placeholder="Telefon Nömrəniz (+994...)" required&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;select id="vakansiyaSelect"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;option value="Ümumi"&gt;Vakansiyanı seçin&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;option value="Polşa - TIR Sürücüsü"&gt;Polşa - TIR Sürücüsü&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">                </span>&lt;option value="Litva - TIR Sürücüsü"&gt;Litva - TIR Sürücüsü&lt;/option&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;/select&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">            </span>&lt;button type="submit" class="btn-submit"&gt;Müraciəti Göndər&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/form&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;footer&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p&gt;© 2026 KaryeraAvropa. Bütün hüquqlar qorunur.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/footer&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="script.js"&gt;&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-truck-fast"></i>
+                Avropaİş
+            </a>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <nav>
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#home">Ana Səhifə</a></li>
+                    <li><a href="#vacancies">Vakansiyalar</a></li>
+                    <li><a href="#apply">Müraciət Et</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1>Avropada Rəsmi <br><span>TIR Sürücüsü</span> İşləri</h1>
+                <p>Polşa və Litvada yüksək maaşlı, rəsmi müqaviləli və tam viza dəstəkli CE kateqoriyalı sürücü vakansiyaları. Karyeranızı Avropada qurun.</p>
+                <a href="#apply" class="btn btn-primary">
+                    İndi Müraciət Et <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">€2700</span>
+                        <span class="stat-label">Maksimum Maaş</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Viza Dəstəyi</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Rəsmi</span>
+                        <span class="stat-label">Müqavilə</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hero-image">
+                <div class="floating-badge badge-1">
+                    <div class="badge-icon"><i class="fa-solid fa-check"></i></div>
+                    <div>
+                        <strong>Code 95 Dəstəyi</strong>
+                    </div>
+                </div>
+                <div class="hero-image-wrapper">
+                    <!-- Abstract representation of a truck/journey -->
+                    <i class="fa-solid fa-truck-moving"></i>
+                </div>
+                <div class="floating-badge badge-2">
+                    <div class="badge-icon"><i class="fa-solid fa-file-signature"></i></div>
+                    <div>
+                        <strong>Rəsmi Sənədləşmə</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="vacancies" class="vacancies">
+        <div class="container">
+            <h2 class="section-title">Açıq Vakansiyalarımız</h2>
+            <p class="section-subtitle">Təcrübənizə və istəyinizə uyğun ən yaxşı şərtlərlə təmin olunmuş rəsmi iş yerləri.</p>
+            
+            <div class="cards-grid">
+                <!-- Poland Card -->
+                <div class="job-card">
+                    <div class="card-header">
+                        <span class="country-badge">
+                            <img src="https://flagcdn.com/w20/pl.png" alt="Poland Flag" style="border-radius: 2px;">
+                            Polşa
+                        </span>
+                    </div>
+                    <div class="salary">€2,100 - €2,600</div>
+                    <div class="job-title">TIR Sürücüsü (CE Kateqoriya)</div>
+                    
+                    <ul class="req-list">
+                        <li><i class="fa-solid fa-check"></i> CE Kateqoriyalı Sürücülük Vəsiqəsi</li>
+                        <li><i class="fa-solid fa-check"></i> Beynəlxalq reyslər üzrə təcrübə</li>
+                        <li><i class="fa-solid fa-check"></i> Tam Viza Dəstəyi (İş Vizası)</li>
+                        <li><i class="fa-solid fa-check"></i> Rəsmi əmək müqaviləsi</li>
+                        <li><i class="fa-solid fa-check"></i> Müasir Avtopark (Avropa daxili)</li>
+                    </ul>
+                    
+                    <button class="btn btn-primary" onclick="selectJob('Polşa - TIR Sürücüsü')">
+                        Bu işi seç <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+
+                <!-- Lithuania Card -->
+                <div class="job-card">
+                    <div class="card-header">
+                        <span class="country-badge" style="background: rgba(16, 185, 129, 0.1); color: var(--accent);">
+                            <img src="https://flagcdn.com/w20/lt.png" alt="Lithuania Flag" style="border-radius: 2px;">
+                            Litva
+                        </span>
+                    </div>
+                    <div class="salary">€2,200 - €2,700</div>
+                    <div class="job-title">TIR Sürücüsü (Avropa Daxili)</div>
+                    
+                    <ul class="req-list">
+                        <li><i class="fa-solid fa-check"></i> Rəqəmsal Taxoqraf kartı</li>
+                        <li><i class="fa-solid fa-check"></i> Code 95 sənədləşmə dəstəyi</li>
+                        <li><i class="fa-solid fa-check"></i> Stabil qrafik və dincəlmə vaxtları</li>
+                        <li><i class="fa-solid fa-check"></i> Tibbi Sığorta</li>
+                        <li><i class="fa-solid fa-check"></i> Yol xərclərinin qarşılanması</li>
+                    </ul>
+                    
+                    <button class="btn btn-primary" style="background: var(--accent); box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);" onclick="selectJob('Litva - TIR Sürücüsü')">
+                        Bu işi seç <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="apply" class="apply-section">
+        <div class="container">
+            <h2 class="section-title">Bizə Qoşulun</h2>
+            <p class="section-subtitle">Məlumatlarınızı qeyd edin, komandamız sizinlə ən qısa zamanda əlaqə saxlayacaq. Müraciətiniz birbaşa WhatsApp-a yönləndiriləcək.</p>
+            
+            <div class="form-container">
+                <form id="applicationForm">
+                    <div class="form-group">
+                        <label for="fullName" class="form-label">Ad və Soyad</label>
+                        <input type="text" id="fullName" class="form-control" placeholder="Məs: Əli Əliyev" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone" class="form-label">Əlaqə Nömrəsi (WhatsApp)</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="+994 -- --- -- --" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="vacancy" class="form-label">İstədiyiniz Vakansiya</label>
+                        <select id="vacancy" class="form-control" required>
+                            <option value="" disabled selected>Vakansiya seçin...</option>
+                            <option value="Polşa - TIR Sürücüsü">Polşa: TIR Sürücüsü (€2100-€2600)</option>
+                            <option value="Litva - TIR Sürücüsü">Litva: TIR Sürücüsü (€2200-€2700)</option>
+                            <option value="Hər ikisi uyğundur">Hər ikisi mənə uyğundur</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experience" class="form-label">CE Kateqoriya üzrə Təcrübəniz</label>
+                        <select id="experience" class="form-control" required>
+                            <option value="" disabled selected>Təcrübə müddətini seçin...</option>
+                            <option value="Təcrübəsiz / Yeni">Təcrübəsiz / Yeni almışam</option>
+                            <option value="1 ilə qədər">1 ilə qədər</option>
+                            <option value="1 - 3 il">1 - 3 il</option>
+                            <option value="3 ildən çox">3 ildən çox</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-accent form-submit">
+                        <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> WhatsApp ilə Göndər
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <i class="fa-solid fa-truck-fast"></i> Avropaİş
+            </div>
+            <p class="footer-info">Azərbaycandan Avropaya rəsmi və güvənli işə qəbul mərkəzi.</p>
+            
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            
+            <div class="copyright">
+                &copy; <span id="year"></span> Avropaİş Recruitment Agency. Bütün hüquqlar qorunur.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Update copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
+            });
+        });
+
+        // Sticky Header Effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.style.padding = '0.5rem 0';
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                header.style.padding = '1rem 0';
+                header.style.background = 'rgba(255, 255, 255, 0.85)';
+            }
+        });
+
+        // Function called when clicking "Bu işi seç" on cards
+        function selectJob(jobValue) {
+            // Scroll to form
+            document.getElementById('apply').scrollIntoView({ behavior: 'smooth' });
+            
+            // Set the dropdown value
+            const selectElement = document.getElementById('vacancy');
+            // Check if the option exists
+            for(let i = 0; i < selectElement.options.length; i++) {
+                if(selectElement.options[i].value === jobValue) {
+                    selectElement.selectedIndex = i;
+                    break;
+                }
+            }
+            
+            // Highlight the select field temporarily
+            selectElement.style.boxShadow = '0 0 0 4px rgba(16, 185, 129, 0.2)';
+            setTimeout(() => {
+                selectElement.style.boxShadow = '';
+            }, 1500);
+        }
+
+        // Handle Form Submission to WhatsApp
+        document.getElementById('applicationForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent page reload
+
+            // Replace this with your agency's actual WhatsApp number (include country code, no + or spaces)
+            // Example for an AZ number: 994501234567
+            const targetWhatsAppNumber = "994500000000"; 
+
+            // Get form values
+            const name = document.getElementById('fullName').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const vacancy = document.getElementById('vacancy').value;
+            const experience = document.getElementById('experience').value;
+
+            // Format the message
+            const message = `
+🌟 *Yeni Müraciət (TIR Sürücüsü)* 🌟
+
+👤 *Ad/Soyad:* ${name}
+📱 *Nömrə:* ${phone}
+💼 *Seçilən İş:* ${vacancy}
+🚚 *Təcrübə (CE):* ${experience}
+
+_Vebsaytdan göndərildi._
+            `.trim();
+
+            // Encode for URL
+            const encodedMessage = encodeURIComponent(message);
+
+            // Construct WhatsApp wa.me link
+            const whatsappUrl = `https://wa.me/${targetWhatsAppNumber}?text=${encodedMessage}`;
+
+            // Provide visual feedback before redirecting
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Yönləndirilir...';
+            submitBtn.style.background = '#059669'; // Darker green
+
+            // Small delay for UX, then redirect
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+                // Reset form
+                this.reset();
+                submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> Göndərildi';
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.style.background = ''; // reset style
+                }, 3000);
+            }, 800);
+        });
+    </script>
 </body>
 </html>
